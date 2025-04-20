@@ -3,7 +3,7 @@ Hello! Thank you for downloading a CORGIS library. However, you do not
 need to open this file. Instead you should make your own Python file and
 add the following line:
 
-import cars
+import coffee
 
 Then just place the files you downloaded alongside it.
 '''
@@ -11,7 +11,7 @@ Then just place the files you downloaded alongside it.
 import os as _os
 import pickle as _pickle
 
-__all__ = ['get_car']
+__all__ = ['get_coffee']
 
 def _tifa_definitions():
     return {"type": "ModuleType",
@@ -25,35 +25,41 @@ def _tifa_definitions():
                     "subtype": {"type": "NumType"}
                 }
             },
-            'get_car': {
+            'get_coffee': {
                 "type": "FunctionType",
-                "name": 'get_car',
+                "name": 'get_coffee',
                 "returns": 
 				{"type": "ListType", "subtype": 
-					{"type": "DictType", "literals": [{"type": "LiteralStr", "value": 'Dimensions'}, {"type": "LiteralStr", "value": 'Engine Information'}, {"type": "LiteralStr", "value": 'Fuel Information'}, {"type": "LiteralStr", "value": 'Identification'}], "values": [
-						{"type": "DictType", "literals": [{"type": "LiteralStr", "value": 'Height'}, {"type": "LiteralStr", "value": 'Length'}, {"type": "LiteralStr", "value": 'Width'}], "values": [
-							{"type": "NumType"}, 
-							{"type": "NumType"}, 
-							{"type": "NumType"}]}, 
-						{"type": "DictType", "literals": [{"type": "LiteralStr", "value": 'Driveline'}, {"type": "LiteralStr", "value": 'Engine Type'}, {"type": "LiteralStr", "value": 'Hybrid'}, {"type": "LiteralStr", "value": 'Number of Forward Gears'}, {"type": "LiteralStr", "value": 'Transmission'}, {"type": "LiteralStr", "value": 'Engine Statistics'}], "values": [
+					{"type": "DictType", "literals": [{"type": "LiteralStr", "value": 'Location'}, {"type": "LiteralStr", "value": 'Year'}, {"type": "LiteralStr", "value": 'Data'}], "values": [
+						{"type": "DictType", "literals": [{"type": "LiteralStr", "value": 'Country'}, {"type": "LiteralStr", "value": 'Region'}, {"type": "LiteralStr", "value": 'Altitude'}], "values": [
 							{"type": "StrType"}, 
 							{"type": "StrType"}, 
-							{"type": "NumType"}, 
-							{"type": "NumType"}, 
-							{"type": "StrType"}, 
-							{"type": "DictType", "literals": [{"type": "LiteralStr", "value": 'Horsepower'}, {"type": "LiteralStr", "value": 'Torque'}], "values": [
+							{"type": "DictType", "literals": [{"type": "LiteralStr", "value": 'Min'}, {"type": "LiteralStr", "value": 'Max'}, {"type": "LiteralStr", "value": 'Average'}], "values": [
+								{"type": "NumType"}, 
 								{"type": "NumType"}, 
 								{"type": "NumType"}]}]}, 
-						{"type": "DictType", "literals": [{"type": "LiteralStr", "value": 'City mpg'}, {"type": "LiteralStr", "value": 'Fuel Type'}, {"type": "LiteralStr", "value": 'Highway mpg'}], "values": [
-							{"type": "NumType"}, 
+						{"type": "NumType"}, 
+						{"type": "DictType", "literals": [{"type": "LiteralStr", "value": 'Owner'}, {"type": "LiteralStr", "value": 'Type'}, {"type": "LiteralStr", "value": 'Production'}, {"type": "LiteralStr", "value": 'Scores'}, {"type": "LiteralStr", "value": 'Color'}], "values": [
 							{"type": "StrType"}, 
-							{"type": "NumType"}]}, 
-						{"type": "DictType", "literals": [{"type": "LiteralStr", "value": 'Classification'}, {"type": "LiteralStr", "value": 'ID'}, {"type": "LiteralStr", "value": 'Make'}, {"type": "LiteralStr", "value": 'Model Year'}, {"type": "LiteralStr", "value": 'Year'}], "values": [
-							{"type": "StrType"}, 
-							{"type": "StrType"}, 
-							{"type": "StrType"}, 
-							{"type": "StrType"}, 
-							{"type": "NumType"}]}]}}
+							{"type": "DictType", "literals": [{"type": "LiteralStr", "value": 'Species'}, {"type": "LiteralStr", "value": 'Variety'}, {"type": "LiteralStr", "value": 'Processing method'}], "values": [
+								{"type": "StrType"}, 
+								{"type": "StrType"}, 
+								{"type": "StrType"}]}, 
+							{"type": "DictType", "literals": [{"type": "LiteralStr", "value": 'Number of bags'}, {"type": "LiteralStr", "value": 'Bag weight'}], "values": [
+								{"type": "NumType"}, 
+								{"type": "NumType"}]}, 
+							{"type": "DictType", "literals": [{"type": "LiteralStr", "value": 'Aroma'}, {"type": "LiteralStr", "value": 'Flavor'}, {"type": "LiteralStr", "value": 'Aftertaste'}, {"type": "LiteralStr", "value": 'Acidity'}, {"type": "LiteralStr", "value": 'Body'}, {"type": "LiteralStr", "value": 'Balance'}, {"type": "LiteralStr", "value": 'Uniformity'}, {"type": "LiteralStr", "value": 'Sweetness'}, {"type": "LiteralStr", "value": 'Moisture'}, {"type": "LiteralStr", "value": 'Total'}], "values": [
+								{"type": "NumType"}, 
+								{"type": "NumType"}, 
+								{"type": "NumType"}, 
+								{"type": "NumType"}, 
+								{"type": "NumType"}, 
+								{"type": "NumType"}, 
+								{"type": "NumType"}, 
+								{"type": "NumType"}, 
+								{"type": "NumType"}, 
+								{"type": "NumType"}]}, 
+							{"type": "StrType"}]}]}}
             },
         }
     }
@@ -69,7 +75,7 @@ class DatasetException(Exception):
     ''' Thrown when there is an error loading the dataset for some reason.'''
     
 _Constants._DATABASE_NAME = _os.path.join(_os.path.dirname(__file__),
-                                          "cars.data")
+                                          "coffee.data")
 if not _os.access(_Constants._DATABASE_NAME, _os.F_OK):
     raise DatasetException(("Error! Could not find a \"{0}\" file. "
                            "Make sure that there is a \"{0}\" in the "
@@ -86,9 +92,9 @@ elif not _os.access(_Constants._DATABASE_NAME, _os.R_OK):
 
 _Constants._DATASET = None
 
-def get_car():
+def get_coffee():
     """
-    Retrieves all of the car.
+    Retrieves all of the Coffee.
     """
     if _Constants._DATASET is None:
         with open(_Constants._DATABASE_NAME, 'rb') as _:
@@ -99,9 +105,9 @@ if __name__ == '__main__':
     from pprint import pprint as _pprint
     from timeit import default_timer as _default_timer
     
-    print(">>> get_car()")
+    print(">>> get_coffee()")
     
     start_time = _default_timer()
-    result = get_car()
+    result = get_coffee()
     print("Time taken: {}".format(_default_timer() - start_time))
     _pprint(result[0])
